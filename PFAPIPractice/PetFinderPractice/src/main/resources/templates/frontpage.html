@@ -1,0 +1,12 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Welcome to Pet Rescue</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<!-- The Model exported to this page has a parameter called 'name' -->
+    <p th:text="'Good ' + ${timeOfDay} + '!'" />Welcome to the PetFinder API practice rescue front page.<br/>
+    We hope we can help you find a new furry (or scaly!) friend today. 
+</body>
+</html>
