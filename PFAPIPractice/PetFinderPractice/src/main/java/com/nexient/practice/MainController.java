@@ -7,15 +7,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller // IDs class as a MVC controller
 public class MainController {
 
-	@RequestMapping("/") // matches nexient.com/
+	@RequestMapping("/") // matches localhost:8080/
 	/**
-	 * 
-	 * @param name
-	 *             from /greeting?name=xxx, defaults to 'World' if not present
 	 * @param model
 	 *             Provided by framework to engage with View
-	 * @return The template.html to use for the View (in this case,
-	 *         greeting.html)
+	 * @return The templates/xxx.html to use for the View (in this case,
+	 *         frontpage.html)
 	 */
 	public String greeting(final Model model) {
 		model.addAttribute("timeOfDay", TimeOfDay.greeting());
