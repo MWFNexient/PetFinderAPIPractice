@@ -1,0 +1,42 @@
+SpringMVC_Notes#2:
+Integrating your Eclipse project with Apache TomCat
+LINK: https://www.youtube.com/watch?v=6LO40oH5abg
+
+QUICK SUMMARY:
+PART 01: (Summary)
+1. Server Perspective
+2. New Server Wizard
+3. Find Apache Server
+4. Specify Installation Path
+
+PART 02: (Summary)
+5. Project Properties -> Target Runtime -> Apache Tomcat v7.0
+
+Notes:@0:00 to 0:30 == Explanation of what we are about to do. 
+@0:32 Goto Window @0:36 Window --> Show View --> Other 
+@0:40 Select: Servers Folder --> Server 
+@0:44 Click on "new server wizard" (Blue Text) inside "Servers" panel. 
+	(Seen as the long rectangular UI region on bottom edge of screen) 
+	
+@0:57 Expands the "Apache" folder. (Because we are using Tomcat server) 
+@0:58 Mouse over "Tomcat v7 Server" and click it. 
+@1:18 Click on Next. 
+@1:23 Click "Browse" to provide server's installation path. 
+	In my case, where I unzipped Tomcat server to. (C:\DEV\SDK\JAVA_TECH\TOMCAT) 
+	
+@1:30 Installation path can be seen in screen shot. 
+	Mouse is about to hit "OK" 
+	NOTE: Select the folder that 
+	CONTAINS: "bin", "conf", "lib", "logs" subfolders. 
+	
+@1:34 Click on "Finish" @1:35 Over HALF of the job is now done. :) 
+@1:38 Now, right click on the project root in the solution explorer. 
+(Vertical UI panel of the left. 
+Sorry if that is not the name of it, 
+that is what I call it when I use visual studio) 
+
+@1:44 Choose "Properties" from the drop down. 
+@1:46 Click on "Target Runtime" from list of options on left of pop-up properties window. 
+@1:48 Select "Apache Tomcat v7.0" checkbox, under label "Targeted Runtimes" 
+@1:51 Click "OK" 
+@1:55 Integration is finished.

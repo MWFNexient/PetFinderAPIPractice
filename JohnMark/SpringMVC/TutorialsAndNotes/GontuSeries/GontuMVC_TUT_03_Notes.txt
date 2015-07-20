@@ -1,0 +1,52 @@
+﻿
+
+Spring MVC notes: TUTORIAL PART#03. Setting up SpringMVC
+
+Posted my notes on the youtube video thread:
+https://www.youtube.com/watch?v=4eJeT4vWASg
+Notes:
+@1:10 : To use spring we need to add the spring related .jar files.
+http://repo.spring.io/release/org/springframework/spring/
+
+﻿﻿@1:59 Here, you will find the exact dependencies information for the MVC project
+if you are going to use Maven or Gradle:
+http://projects.spring.io/spring-framework/
+The link above also happens to have a short hello-world tutorial
+that goes over dependency injection.
+
+@2:12 All Required .jar files will be in the "libs" directory
+
+@2:33 Pasting .jars into "lib" folder of PROJECT in Eclipse solution explorer.
+This seems like a good way for me to get started.
+However, when I know more about Spring MVC, hopefully I will
+find there are other ways to do this. I imagine this could bloat the file size
+of my project necessarily. I am interested in hearing the pros/cons of this method.
+
+@2:44 There is one more .Jar needed. "Commons Logging"
+@2:52 You may download commons-logging.jar from this link:
+http://commons.apache.org/proper/commons-logging/download_logging.cgi
+
+@3:05 Mouse over commons-logging.jar file to COPY
+@3:09 Mouse over lib folder to PASTE into
+
+@3:18 "Last but not least, we will need a web server."
+@3:20 Any server providing Servlet/JSP technologies is suitable.
+Did you say "Servlet" or "Server"?
+@3:26 : Tomcat, WebLogic, WebSphere, GlassFish, JBoss Etc.
+
+@3:33 : Will be using Apache TomCat server for this tutorial.
+Awesome, because that is what my current project is using!
+
+@3:39 Steps for downloading Apache TomCat server.
+All of presenter's tutorials Spring MVC tutorials will use TomCat server.
+Download URL: http://tomcat.apache.org/download-70.cgi
+Need help: His email is displayed on screen.
+
+A bit confused on if I need "core" or "deployer"
+Going to go with "core" and just unzip it in C:\DEV\JAVA_TECH\TOMCAT
+If I get stuck, might want to look at this:
+https://www.youtube.com/watch?v=bP66y108xAc
+
+@4:17 Next tutorial will go over integrating our project with the TomCat server.
+
+@4:42 Like this video

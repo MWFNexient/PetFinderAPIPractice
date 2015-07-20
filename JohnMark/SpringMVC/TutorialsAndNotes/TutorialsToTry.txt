@@ -1,0 +1,6 @@
+
+
+This spring MVC tutorial looks like it is for MAC. But it has some .jsp
+code files. A bit different than one I previously did, but similiar enough
+that it would be good re-inforcement:
+http://crunchify.com/simplest-spring-mvc-hello-world-example-tutorial-spring-model-view-controller-tips/
