@@ -1,4 +1,4 @@
-package demo;
+package com.nexient.practice;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
