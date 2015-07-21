@@ -1,0 +1,42 @@
+
+Developing a simple JSP page:
+https://www.youtube.com/watch?v=7vx2vDDwCqc
+
+@0:00- 0:58 : 
+Intro. Steps: 
+1. Create dynamic web project.            
+2. Create .jsp file.            
+3. Start TomCat server and deploy the project. 
+
+@1:00- 1:05: In solution explorer:              
+Servers --> TomCat -->Right Click --> New --> Project. 
+@1:08-2:55 Browse for project template.            
+Web --> Dynamic Web Project            
+Click Next.            
+Name your project.            
+Next.(do nothing) Next.            
+Generate web.xml content descriptor @2:10            
+Click FINISH @2:55  
+We now have JSP project showing up in solution explorer. 
+@3:27 First step is now finished.   
+
+Now at "Create a JSP" step. 
+
+@3:30: If you want to execute one of these files, you need to explicitly create it. @4:41: We are creating either index.jsp or default.jsp then. 
+@4:40: .JSP files : Put into WebContent folder (THE ROOT. Not in WEB-INF)           
+.HTML files: "Java Resources" folder. 
+@5:10: WebContent --> RIGHTCLICK --> New --> JSP File 
+@6:21: (Tail End) Use index.JSP as name.             
+Must use one of the .JSP file names mentioned in web.xml file. 
+@6:25 Clicked on next. Now at:            
+"Select JSP Template" page.            
+Choose this template:            
+New JSP File (Html) : JSP with HTML Markup            
+Click FINISH @6:54- 8:25 Nothing special. 
+Just writes HTML inside a .jsp file template. 
+
+@8:25- 8:39 : Time for step3: Deploying project on TomCat. 
+@8:39- 9:02 : In project explorer find: WEB-INF / index.jsp                       
+Right Click index.jsp --> run as --> run on server. 
+@9:02- 9:19 : Next->Finish->Restart Server when asked.
+@9:35: Index.jsp is up and running on port 8080

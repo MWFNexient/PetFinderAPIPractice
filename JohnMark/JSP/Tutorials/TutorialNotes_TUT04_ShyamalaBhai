@@ -1,0 +1,80 @@
+
+
+
+JSP Scripting Elements:
+https://www.youtube.com/watch?v=ysoeYPYl2KQ
+
+@:20: Scritping tags.
+Scriplet      :   <%     %>
+Expression    :   <%=    %>
+Delcaration   :   <%!    %>
+
+@1:08
+Webcontent > new > new JSP file > name: index.jsp
+Next > JSP with HTML mark up. > FINISH.
+
+@1:50 Scriplet tag:
+<% %> @:2:06
+<%
+out.print("hello world");
+%>
+
+@2:40: Running on server. END @3:00
+
+@3:00 Expression tag.
+Does not need terminator ";"
+<%=   %>
+sum is:
+<%=
+4+7
+%>
+Run as > Run on server.
+
+@4:39
+Declaration tag
+<%! %>
+Can declare an integer or method inside this tag.
+Goto index.jsp
+<%!
+int a=5;
+%>
+the value of a is
+@5:53 <%= a %>
+
+I think I get it.
+Expression tag lets you display information.
+While the Scriplet and Declaration tags let you
+set stuff in the "back end" so to speak.
+
+@5:59: R-Click index.jsp --> run as --> run on server.
+
+@6:57: Writing add(..) function inside a DECLARATION flag.
+
+So...
+I am thinking:
+Use delcaration tags to make all your functions.
+Then use scriplet tag to call your "main" entry point.
+
+Are declaration tags simply down-graded scriptlet tags?
+What is the scope of a declaration tag compared to a scriplet tag?
+
+@7:33: Still writing add function.
+@7:53: Moving onto expression tag.
+Calling add() from the expression tag.
+<%= add(3,4) %>
+
+@8:33: RightClick Index.jsp in solution explorer
+run > run on server
+
+Summary:
+Expression Tag : <%=  %>
+Declaration Tag: <%!= %>
+Scriptlet Tag  : <% %>
+
+<%= used to display values. Think of it as a print statement. %>
+<%! Used to declare functions and variables. %>
+<%! you can write and entire java function in here. %>
+<%  You write full scripts in here. I am going to think ot %>
+<%  This tag as an anonymous function block. %>
+<%  I am guessing within the scriplet tag you can %>
+<%  call previously declared functions. %>
