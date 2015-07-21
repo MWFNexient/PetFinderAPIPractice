@@ -11,7 +11,8 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 @Controller // IDs class as a MVC controller
 public class MainController {
 
-	@RequestMapping("/") // matches localhost:8080/
+	@RequestMapping({ "/", "/home", "/index", "/greeting", "/frontpage",
+		"/main" })
 	/**
 	 * @param model
 	 *             Provided by framework to engage with View
