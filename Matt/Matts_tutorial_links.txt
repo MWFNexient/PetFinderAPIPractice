@@ -1,0 +1,10 @@
+Matt
+7/22/2015
+
+
+Web Programming with Eclipse (both online and book versions exist)
+http://cse.csusb.edu/turner/java_web_programming/contents/
+
+
+(hands-on GIT practice)
+http://gitimmersion.com/lab_14.html
