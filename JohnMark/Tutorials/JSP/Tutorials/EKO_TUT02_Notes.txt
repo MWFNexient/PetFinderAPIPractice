@@ -1,0 +1,173 @@
+
+Project name: EKOTUT02
+In an attempt to keep my projects more organized, I am going to diverge
+from the name used in the tutorial and use a name that matches my notes file.
+
+Create and use a form. (Get or Post Request) in Java
+With Eclipse for JavaEE and Apache Tomcat.
+https://www.youtube.com/watch?v=rEIZx-xgkdI
+
+NOTE: The case of "JavaForm" is off in my documentation.
+As when I was doing the tutorial I was like, "javaForm" should be
+"JavaForm" because it is a class. Then there were urls in this demo like
+"JavaForm/javaForm and I questioned that.
+
+@7:52-@10:21: Writing inside index.html
+<body>
+	<form action="javaForm" method="get">
+		Type Your Name : <input type="text"   name="username">
+		Type Your Email: <input type="text"   name="useremail">
+		<input type="submit" value = "send information" name="send_button">
+	</form>
+</body>
+
+@10:33: localhost:8080/JavaForm  ... 404 error.
+@10:50: RIGHT CLICK on server. ADD/REMOVE select.
+In "add Remove" dialog.
+You want to move your JavaForm resource on the list on the left
+over to the right.
+@11:03: Click Finish.
+
+@11:09: Try localhost:8080/JavaForm again.
+@11:29: RESTART server. (Right Click on server, select restart)
+@11:40: Form is now working!
+
+@11:47: If you click "Send Information" You will get a 404 error.
+@11:47 - 12:16: Mentions we need to create a class to be invoked to stop the 404 error.
+
+@12:27: "Java Resources" > Right Click > New Class
+@12:39: Name of Class: "JavaForm"
+@12:55: Package: "org.asastudio.form
+@13:01: SuperClass > Browse...
+@13:05: SuperClass Selection Menu:
+        Choose a type:
+@13:12: Type: HttpServlet
+@13:24: Hit "Finish" on the "New Java Class" dialog.
+@13:36: About to write into auto-generated javaForm.java class.
+
+@13:42: CTRL + SPACE to get inherited method stub list.
+@13:43: Select: doGet(...) function.
+
+javaForm.java:
+public class javaForm extends HttpServlet{
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException{
+		resp.getWriter().println("TESTING SUCCESS!");
+	}
+}
+
+@14:36: Done writing. Saves all.
+@14:57: Refreshed. Still gettting 404 error.
+@15:04: Restart the server. (Right Click on Server in servers panel -> Restart)
+
+@15:18: At form at: localhost:8080/JavaForm/
+@15:24: Send information button clicked.... Still getting nothing... GRRR.
+        HTTP Status 404 - /JavaForm/JavaForm
+
+@15:35: Points to web.xml. The solution is probably in there.
+        <PRJ ROOT> /WebContent/WEB-INF/web.xml
+
+@15:43: Begins editing web.xml
+
+<servlet>
+	<servlet-name>test</servlet-name>
+	<servlet-class>org.asastudio.form.JavaForm</servlet-class>
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>test<servlet-name>
+	<url-pattern>/JavaForm</url-pattern>
+<servlet-mapping>
+
+@17:29: Done writing web.xml servlet code.
+@17:34: Back in internet-browser.
+@17:42: Saves all. Restarts server.
+@17:52: At: localhost:8080/JavaForm/ in browser.
+Hits send information.
+@17:54: TESTING SUCCESS!!!
+
+@18:19: Back inside JavaForm.java. About to write more code.
+
+String uname = req.getParameter("username");
+resp.getWriter().println(uname);
+@19:28: Save all and restart server.
+@19:42: localhost:8080/JavaForm
+Hit SEND INFORMATION.
+@19:48: TESTING SUCCESS!!
+
+@19:54: Going back to localhost:8080/JavaForm/
+Type in your name.
+@19:56: Your name will show up after hitting submit button.
+
+@20:03: Back inside JavaForm.java
+String uname = req.getParameter("useremail");
+
+@21:18: JavaForm.java has been updated to what I believe will be it's final
+state for this tutorial.
+@:21:22: Restarting server.
+@21:42: Adding name and email to page: localhost:8080/JavaForm/
+
+@21:50: ALMOST! Error:
+Your Name = MrGuy<p>
+@21:56: Fix: Removing the extra <p> s.
+@22:03: NOW JavaForm.java is in the final state. I think.
+
+@22:12: RESTART server after saving all.
+
+@22:38: Changing metho in index.html from
+method="get"
+to
+method="post"
+
+@22:50: After you  hit SUBMIT button in the browser. You will get error:
+HTTP Status 405 - HTTP method POST is not supported by this URL
+
+@23:07: Inside JavaForm.java
+Changing method "doGet" to "doPost"
+
+@23:16: Save all, restart server.
+@23:24: localhost:8080/JavaForm
+Send information.
+@23:27: Testing Success!
+
+@23:36: What is the difference between the get and post?
+Now that we are using "post", the url does not display any of
+the submitted information in the query string within the URL.
+
+@24:00 THANKYOU FOR WATCHING. SUBSCRIBE.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

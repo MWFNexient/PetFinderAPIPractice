@@ -1,0 +1,65 @@
+
+
+Interaction between JSP, HTML and XML
+https://www.youtube.com/watch?v=BekJw8h7-PU
+
+@0:00-0:45 Summary
+@0:46 WebContent > New > Html file.
+Name: index.html
+Next
+html5
+Finish
+@1:20
+Create a form & Text box so that it will take text as an
+input in the text box.
+@1:57 Creating a form with an action.
+<form action ="" ............
+WAIT! We need one more file.
+@2:11: Making new file.
+Click on WebContent
+New > JSP File > Hello.jsp > Next > JSP with HTML and markup.
+2:40: Created. We want index.html to interact with Hello.jsp
+<form action = "hello.jsp">
+<input type="text" name="whateverTheNameYouWant">
+<input type="submit" value="submit_stuff"><br/>
+</form>
+@4:54: GoTo: hello.jsp
+Write stuff in the body.
+<body>
+<%
+//inside scripting tag.
+String uname=request.getParameter("whateverTheNameYouWant");
+//value will be stored in uname.
+out.print("hello " + uname);
+%>
+
+</body>
+@7:12: End writing of hello.jsp. Now DEBUGGING.
+@7:20: the username var is showing an error.
+@7:37: running index.html on server again.
+RightClick > run as > run on server > TomCat > Next > Finish
+@8:01: OUTPUT: Input + Submit button.
+@8:18: Hello Shyamala
+
+
+Summary: Making forms on HTML page that will make request
+to .JSP file.
+
+Note: Didn't notice .XML here.
+Just .HTML and .JSP interaction.
+
+
+Did this:
+<%
+String uname = request.getParameter(youSirName);
+out.print("hello " + youSirName);
+%>
+
+With the two bugs fixed:
+<%
+String uname = request.getParameter("youSirName");
+out.print("hello " + uname);
+%>
+....
+
+request.getParameter.... is returning NULL.

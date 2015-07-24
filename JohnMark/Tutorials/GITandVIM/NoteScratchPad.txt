@@ -1,0 +1,7 @@
+
+VIM:
+ESCAPE KEY
+COLLEN KEY
+< Now in System Command Mode >
+wq   //write & quit
+ENTER

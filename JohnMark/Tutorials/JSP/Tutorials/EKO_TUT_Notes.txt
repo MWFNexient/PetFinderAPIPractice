@@ -1,0 +1,204 @@
+
+https://www.youtube.com/watch?v=zc2Q66-FR6M
+
+Project Name: EKOTUT01
+In an attempt to keep my projects more organized, I am going to diverge
+from the name used in the tutorial and use a name that matches my notes file.
+
+NOTE: THIS JSP Tutorial seems to be covering CODE-BEHIND pages.
+I am not much a fan of <% This Crap %> So code behind would be nice.
+Wait... No... This tutorial is a servlet tutorial. (I just finished it)
+I like this tutorial because it does NOT use a wizard to setup your servlets.
+Having a manual understanding of how everything is wired-up is good.
+
+Create Web App with Java, Eclipse for Java EE, and Apache Tomcat:
+
+@6:51 File > New > Other > Web > Dynamic Web Project
+NEXT
+Name Project: TestJSP
+Target Runtime: Apache Tomcat v7.0
+NEXT
+OK
+FINISH
+NEXT
+NEXT
+CHECK: Generate web.xml deployment descriptor.
+NEXT
+FINISH
+
+Waiting for project to generate:
+@8:30...@8:45
+
+@9:12
+File > New > Other > Server(s) > Server > NEXT > TomcAt 0.7 > NEXT
+
+@9:38
+Now on "Add and Remove" step of "New Server" Dialog.
+Select "TestJSP" from the list of "Available" resources on the LEFT,
+And hit "ADD>" to move it over to the list of "Configured"
+on the right.
+
+Hit FINISH
+
+@9:50
+Goto "Servers" tab on bottom of the screen.
+If you don't see it, you might need to switch to the
+servers VIEW.
+Window > Show View > Other > Server > Servers
+
+////////////////////////////////////////////////////////////////////////////////
+John Mark Note: What is the difference between "View" and "Perspective" ?
+https://www.youtube.com/watch?v=qzgq2fOZ0Ys 
+(Jiri Pinka: Eclipse IDE Perspectives and Views: JavaVids)
+A perspective is a visual container for a set of views and editors.
+How many perspectives you have depends on how many plugins you have installed.
+They are like pages in a book. Only one perspective may be visible at a time.
+
+In summary: 
+A view is a single IDE element. Like the Project Explorer or the "Servers" tab.
+A perspective is a collection of views.
+/////////////////////////////////////////////////////////////////////////////////
+
+@10:00
+Double Click the server in Servers Tab (Server view)
+Select: Use Tomcat installation (Option #2)
+Close and Save.
+
+@10:15
+RIGHT Click the server in Servers Tab (Server View)
+Goto Properties > General > Switch Location > Press OK.
+
+@10:27:
+Right click > start. On Server in servers tab.
+
+10:44:
+Goto browser and type:
+localhost:8080
+
+@10:56:
+Tomcat is now setup.
+
+@11:07
+Open "Java Resources" Folder.
+In "src" folder:
+RIGHT CLICK -> New -> Class
+
+@11:23
+New Java Class Dialog:
+Package: example
+Name   : webApp
+FINISH @11:36
+
+@11:44 
+We now have a webApp.java class.
+
+package example;
+import javax.servlet.http.HttpServlet;
+public class webApp extends HttpServlet {
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		//TODO: Auto generated method stub.
+		//super.doGet(req, resp); <-Part of auto generated stub.
+		resp.getWriter().println("TESTING... TOMCAT...");
+
+	}
+
+}
+
+@12:50: CTRL + SPACE inside your class will give you a list
+of the method stubs you can generate. Method stubs being based on
+HttpServlet since webApp extends HttpServlet.
+
+@13:47: After you are done writing webApp.java class:
+Find "TestJSP" root in your project explorer view.
+RIGHT CLICK > Run As > Run On Server > Finish
+When asked, restart the server.
+
+@13:59 404 ERROR!!
+http://localhost:8080/TestJSP/
+
+Solution: We need to create an index.html file. @14:16
+Right click on "Web Content" folder.
+New > HTML File.
+Call it index.html, Finish.
+
+Your index.html auto generated file: @14:34
+We are only concerned with what goes in the body:
+<body>
+TEST TOMCAT
+</body>
+
+@14:50: Reload http://localhost:8080/TestJSP/
+You will now see "TEST TOMCAT" on the page.
+
+@15:20: Open web.xml file located in "WebContent/WEB-INF/web.xml"
+Click the "Source" tab to view the source code.
+
+@15:18: Adding a servlet tag as FIRST ELEMENT inside the <web-app> scope of web.xml file.
+<servlet>
+	<servlet-name>Test</servlet-name>
+	
+	<servlet-class>
+			example.webApp
+	</servlet-class>
+
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>Test<servlet-name>
+	<url-pattern>/test<url-pattern>	
+</servlet-mapping>
+
+@6:51: Note:   /test was used for the URL pattern.
+This is different than the other tutorial I did. I am guessing
+that will link it to a specific code behind page?
+
+@16:57: Go back to:
+http://localhost:8080/test/test.... 404 error.
+Why two tests? Is that the result of URL pattern?
+
+@17:07:
+Right Click > Run As > Run On Server
+WORKS now.
+http://localhost:8080/test/ 
+takes you to index.html.
+http://localhost:8080/test/test 
+will invoke webApp.java
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,42 @@
+
+NOTE: For this tutorial my project will be called
+JayEssPee
+
+JSP (Java server pages) tutorials:
+
+Shyamala Bhai
+#1: https://www.youtube.com/watch?v=-mYt2s1sYOs
+
+#2: https://www.youtube.com/watch?v=urdLWd0vVgo
+
+NOTE: I think this project was started with
+      the "New Java Project" option.
+
+@:1:10 setup java tomcat by clicking "servers"
+@:1:29 Cant Find "servers" tab?
+            Window --> Show View --> Other --> Server --> Servers --> OK
+@1:48 Click server tab. New Server WIZARD.
+           Apache --> Tomcat V7 -->NEXT -->FINISH
+@2:38 RIGHTCLICK->Start (Where new server wizard used to be)
+          (It now says: Tomcat server at local host)
+@3:06 RIGHTCLICK->Properties (on tomcat server at local host in servers panel)
+
+
+@3:14 click on SWITCH LOCATION --> Apply --> Ok
+
+
+@3:36 In project explorer (vertical panel on left)
+           Servers --> TomCat --> RIGHT CLICK --> Properties --> ...WAIT... No...
+@3:52 Severs panel. Double click on text "tomcat server..." this  horizontal panel.
+@4:02 This setting looks dangerous.
+           Check: Use Tomcat installation. (Takes control of tomcat installation)
+@5:10 localhost:8080
+@5:35 stop server.
+@5:53 start server
+@6:10 localhost:8080
+DONE!
+
+NOTE: I used the same "servers" folder/project for this tutorial and had to re-configure it. I am guessing it has broken my SpringyMoonShoes project.
+
+
+

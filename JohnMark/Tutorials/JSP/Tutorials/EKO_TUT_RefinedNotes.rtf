@@ -1,0 +1,241 @@
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033\deflangfe1033{\fonttbl{\f0\fswiss\fprq2\fcharset0 Calibri;}{\f1\fmodern\fprq1\fcharset0 Consolas;}{\f2\fnil\fcharset0 Consolas;}{\f3\fnil Consolas;}}
+{\colortbl ;\red255\green255\blue0;\red0\green0\blue0;\red0\green0\blue255;\red255\green0\blue0;\red102\green102\blue102;\red127\green0\blue85;\red63\green95\blue191;\red127\green127\blue159;\red0\green0\blue192;\red100\green100\blue100;\red106\green62\blue62;\red63\green127\blue95;\red127\green159\blue191;\red42\green0\blue255;\red0\green128\blue128;\red63\green127\blue127;\red232\green242\blue254;\red221\green132\blue132;}
+{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\nowidctlpar\sa200\sl276\slmult1\lang9\f0\fs22\par
+NOTE: These tutorials will assume you know some basic things.\line Like how to start/stop a server. And where to find certain files and folders.\line Being that, I have already made documentation that covers those basic things.\line I don't want to waste time writing those out. Rather, I'd like this documentation to\line be more concise.\line\line\cf1\highlight2 Things in yellow+black were not in original tutorial and added by me. \cf0\highlight0\par
+Project Name: EKOTUT01\line\pard{\field{\*\fldinst{HYPERLINK "https://www.youtube.com/watch?v=zc2Q66-FR6M"}}{\fldrslt{\ul\cf3 https://www.youtube.com/watch?v=zc2Q66-FR6M}}}\f0\fs22\line\line\b Make new dynamic web project:\b0\line @6:51 \cf4\b File > New > Other > Web > Dynamic Web Project\cf0\b0\line Go through all the steps pressing "NEXT" when ready.\line Make sure you have these settings.\line Name Project: TestJSP\line\cf1\highlight2 Target Runtime: New Runtime:\line\tab Server Type: Apache TomCat\line                 Name: EKOTUT01_TomCatServerV7\line\cf0\highlight0 CHECK: Generate web.xml deployment descriptor.\line\line\b Configure available resources to be used with tomcat server:\line\b0 @9:12 \cf4 File > New > Other > Server(s) > Server > NEXT \line\cf1\highlight2 New New Server: Define a New Server dialog:\line For Server Runtime Environment:\cf4\highlight0\line\cf1\highlight2 NAME: Select EKOTUT01_INSTANCE \line Server Runtime Environment: EKOTUT01_TomCatServerV7 \line\cf5\highlight0 Note: Think of NAME as an instance of the EKOTUT01_TomCatServerV7\line Note: Think of EKOTUT01_TomCatServerV7 as a class that extends \line TomCatServerV7 and this derived class has special server configurations.\cf1\highlight2\line\cf0\highlight0 @9:38 Now on "\cf4 Add and Remove\cf0 " step of "\cf4 New Server\cf0 " Dialog.\line Select "EKOTUT01" from the list of "Available" resources on the LEFT,\line And hit "ADD>" to move it over to the list of "Configured" on the right.\line Hit FINISH\line\b\line Further Server Configuration: @9:50\b0\line Goto "Servers" tab on bottom of the screen.\line If you don't see it, you might need to switch to the servers VIEW.\line Window > Show View > Other > Server > Servers\par
+\fs16 ////////////////////////////////////////////////////////////////////////////////\line John Mark Note: What is the difference between "View" and "Perspective" ?\line{\field{\*\fldinst{HYPERLINK "https://www.youtube.com/watch?v=qzgq2fOZ0Ys"}}{\fldrslt{\ul\cf3 https://www.youtube.com/watch?v=qzgq2fOZ0Ys}}}\f0\fs16  \line (Jiri Pinka: Eclipse IDE Perspectives and Views: JavaVids)\line A perspective is a visual container for a set of views and editors.\line How many perspectives you have depends on how many plugins you have installed.\line They are like pages in a book. Only one perspective may be visible at a time.\par
+In summary: \line A view is a single IDE element. Like the Project Explorer or the "Servers" tab.\line A perspective is a collection of views.\line /////////////////////////////////////////////////////////////////////////////////\par
+\fs22 @10:00\line Double Click the server in Servers Tab (Server view)\line Select: Use Tomcat installation (Option #2)\line Close and Save.\line\line @10:15\line RIGHT Click the server in Servers Tab (Server View)\line Goto Properties > General > Switch Location > Press OK.\line\line @10:27:\line Right click > start. On Server in servers tab.\line\line 10:44:\line Goto browser and type:\line localhost:8080\line\line @10:56:\line Tomcat is now setup.\par
+\b Create your webApp Class: @11:23\b0\line Select the Java \cf4 Resources/src folder\cf0  within the project explorer.\line\cf4 Right Click > New > Class\cf0\line New Java Class Dialog:\line Package: \cf4 example\cf0\line Name   : \cf4 WebApp         \cf5 //Constant/Class rule.\cf0\line FINISH @11:36\line @11:44  We now have a webApp.java class.\line\line @12:50: CTRL + SPACE inside your class will give you a list\line of the method stubs you can generate. Method stubs being based on\line HttpServlet since webApp extends HttpServlet.\par
+\cf6\b\f1\fs20 package\cf2\b0  example;\cf0\line\cf6\b import\cf2\b0  java.io.IOException;\cf0\line\cf6\b import\cf2\b0  javax.servlet.ServletException;\cf0\line\cf6\b import\cf2\b0  javax.servlet.http.HttpServlet;\cf0\line\cf6\b import\cf2\b0  javax.servlet.http.HttpServletRequest;\cf0\line\cf6\b import\cf2\b0  javax.servlet.http.HttpServletResponse;\cf0\par
+\cf6\b public\cf2\b0  \cf6\b class\cf2\b0  WebApp \cf6\b extends\cf2\b0  HttpServlet \{\cf0\line\lang1033\tab\cf7\lang9 /**\cf0\line\lang1033\tab\cf7\lang9  * Eclipse complained about lacking this.\cf0\line\lang1033\tab\cf7\lang9  * So I used the quick fix option \cf8 -\cf7 John Mark\cf0\line\lang1033\tab\cf7\lang9  */\cf0\line\lang1033\tab\cf6\lang9\b private\cf2\b0  \cf6\b static\cf2\b0  \cf6\b final\cf2\b0  \cf6\b long\cf2\b0  \cf9\b\i serialVersionUID\cf2\b0\i0  = 1L;\cf0\par
+\cf2\tab\cf10 @Override\cf0\line\cf6\lang1033\b\tab\lang9 protected\cf2\b0  \cf6\b void\cf2\b0  doGet(HttpServletRequest \cf11 req\cf2 , \line\lang1033\tab\tab\tab\lang9 HttpServletResponse \cf11 resp\cf2 ) \cf6\b throws\cf2\lang1033\b0\line\tab\tab\tab\lang9 ServletException, IOException \{\cf0\par
+\cf2\tab\lang1033\tab\cf12\lang9 // \cf13\b TODO\cf12\b0  Auto-generated method stub\cf0\line\lang1033\tab\tab\cf12\lang9 //super.doGet(\ul req\ulnone , \ul resp\ulnone );\cf0\line\lang1033\tab\tab\cf11\lang9 resp\cf2 .getWriter().println(\cf14 "WebApp.java TOMCAT"\cf2 );\cf0\line\lang1033\tab\cf2\lang9\}\cf0\line\cf2\}\par
+\par
+@13:47: After you are done writing webApp.java class:\line Find "\cf4 EKOTUT01\cf2 " root in your project explorer view.|\line\cf4 RIGHT CLICK > Run As > Run On Server > Finish\cf2\line When asked, restart the server.\par
+@13:59 404 ERROR!!\line\cf0{\field{\*\fldinst{HYPERLINK "http://localhost:8080/TestJSP/"}}{\fldrslt{\ul\cf3 http://localhost:8080/TestJSP/}}}\cf2\f1\fs20\line Solution: We need to create an index.html file. @14:16\line Right click on "\cf4 Web Content\cf2 " folder.\line\cf4 New > HTML File.\cf2\line Call it \cf4 index.html\cf2 , Finish.\par
+Your index.html auto generated file: @14:34\line We are only concerned with what goes in the body:\line <body>\par
+TEST TOMCAT\par
+</body>\line\line @14:50: Reload \cf0{\field{\*\fldinst{HYPERLINK "http://localhost:8080/TestJSP/"}}{\fldrslt{\ul\cf3 http://localhost:8080/TestJSP/}}}\cf2\f1\fs20\line You will now see "TEST TOMCAT" on the page.\line\line @15:20: Open \cf4 web.xml \cf2 file located in "\cf4 WebContent/WEB-INF/web.xml\cf2 "\par
+Click the "Source" tab to view the source code.|\line\line @15:18: Adding a servlet tag as FIRST ELEMENT inside the <web-app> scope of web.xml file.\line ////////////////////////////////////////\line <servlet>\par
+\tab <servlet-name>Test</servlet-name>\par
+\tab <servlet-class>\par
+\tab\tab\tab example.webApp\par
+\tab </servlet-class>\par
+</servlet>\par
+\par
+<servlet-mapping>\par
+\tab <servlet-name>Test<servlet-name>\par
+\tab <url-pattern>/test<url-pattern>\tab\par
+</servlet-mapping>\par
+/////////////////////////////////////////\par
+@6:51: Note:   /test was used for the URL pattern.\par
+This is different than the other tutorial I did. I am guessing\par
+that will link it to a specific code behind page?\par
+\par
+@16:57: Go back to:\par
+\cf0{\field{\*\fldinst{HYPERLINK "http://localhost:8080/test/test"}}{\fldrslt{\ul\cf3 http://localhost:8080/test/test}}}\cf2\f1\fs20 .... 404 error.\par
+Why two tests? Is that the result of URL pattern?\par
+\par
+@17:07: Stop the server, select project root in solution explorer.\par
+\cf4 Right Click > Run As > Run On Server\cf2\par
+WORKS now.\par
+\cf0{\field{\*\fldinst{HYPERLINK "http://localhost:8080/test/"}}{\fldrslt{\ul\cf3 http://localhost:8080/test/}}}\cf2\f1\fs20  \par
+takes you to index.html.\par
+\cf0{\field{\*\fldinst{HYPERLINK "http://localhost:8080/test/test"}}{\fldrslt{\ul\cf3 http://localhost:8080/test/test}}}\cf2\f1\fs20  \par
+will invoke WebApp.java\par
+\par
+\b NOTE: In web.xml, my display-name is set to EKOTUT01\par
+\b0 I think this is why the url's I am using do not match the original tutorial.\line I use:\line\cf0{\field{\*\fldinst{HYPERLINK "http://localhost:8080/EKOTUT01"}}{\fldrslt{\ul\cf3 http://localhost:8080/E\cf2 KOTUT01}}}\f1\fs20\line\cf0{\field{\*\fldinst{HYPERLINK "http://localhost:8080/EKOTUT01/test"}}{\fldrslt{\ul\cf3 http://localhost:8080/EK\cf2 OTUT01/test}}}\f1\fs20\par
+\cf7\lang1033\f2   \lang9\f3 <!--  John Mark Note:                      -->\cf0\par
+\cf2   \cf7 <!--  This is the first part of your URL.  -->\cf0\par
+\cf2   \cf7 <!--  Not sure what the \ul servlet\ulnone -name and   -->\cf0\par
+\cf2   \cf7 <!--  \ul url\ulnone -pattern are responsible for      -->\cf0\par
+\cf2   \cf15 <\cf16 display-name\cf15 >\cf4 EKOTUT01\cf15 </\cf16 display-name\cf15 >\par
+\cf2\lang1033\f2 HOWEVER, when I change <display-name> tag to something else, it\line is not reflected in the browser URL. I am a bit confused now.\line\line So... Correction:\line\cf7\lang9\f3 <!--  \lang1033\ul\f2 No clue what this does. But everything is \lang9\ulnone\f3 -->\par
+\lang1033\f2 <!--  Working fine. Except the fact that I can't get url to be 8080/test/test -->\cf0\lang9\f3\par
+\cf15 <\cf16 display-name\cf15 >\cf4\lang1033\f2 ThisDoesntMatter\cf15\lang9\f3 </\cf16 display-name\cf15 >\line\line\cf2\lang1033\f2 Lastly: Append this code into WebApp.java, for funsies: @19:09\cf15\line\cf6\highlight17\b\f3 import\cf2\b0  java.util.Date;\cf15\highlight0\f2\line\cf11\highlight17\f3 resp\cf2 .getWriter().println(\cf6\b new\cf2\b0  Date() );\highlight0\lang9\f1\par
+\par
+\lang1033\b\fs28 ////////////END EKO_TUT01 notes, BEGIN EKO_TUT02 notes\b0\fs20\par
+\par
+\par
+Project name: \cf4\b EKOTUT02\cf2\b0\par
+In an attempt to keep my projects more organized, I am going to diverge\par
+from the name used in the tutorial and use a name that matches my notes file.\par
+\par
+Create and use a form. (Get or Post Request) in Java\par
+With Eclipse for JavaEE and Apache Tomcat.\par
+{\field{\*\fldinst{HYPERLINK "https://www.youtube.com/watch?v=rEIZx-xgkdI"}}{\fldrslt{\ul\cf3 https://www.youtube.com/watch?v=rEIZx-xgkdI}}}\f1\fs20\par
+\par
+\b NOTE: The case of "\cf4 JavaForm\cf2 " is off in my documentation.\b0\par
+As when I was doing the tutorial I was like, "javaForm" should be\par
+"JavaForm" because it is a class. Then there were urls in this demo like\par
+"JavaForm/javaForm and I questioned that.\line\line @0:00-5:18:\line Covers making new project and setting up server. \line We already covered how to do that. So I will summarize:\line 1:\line Make a new server. In Servers Panel: RightClick > new > Server\line I am going to name my server: \cf4 EKOTUT02_IS_SERVER_NAME\line\line\cf2 2:\line Make a new dynamic web project. \par
+Call it "\cf4 EKOTUT02\cf2 ". \line Make sure you check: \cf4 Generate web.xml deployment descriptor\cf2 .\line So you have a basic Web.xml file ready for you.\line\cf5\i (Tutorial calls it "JavaForm" @6:31)\par
+But I will be using EKOTUT02. So that the name is more unique and\line matches my documentation. Doing a lot of tutorials, it could get confusing\line if I had, say 3 projects from 3 different tutorials that are all called "JavaForm".\line\par
+\line I couldn't get the server "EKOTUT02_IS_SERVER_NAME" to be used with this project.\line After using the "new dynamic project wizard." Also, in my confusion, I forgot to\line hit the "Generate web.xml deployment descriptor." \par
+\line WEB.INF TROUBLE SHOOT:\par
+Solving part of this problem, here is the Web.xml basic file you'll need to make: It belongs in the WEB-INF folder.\line //////////////////////////////////////////////////////////////////////////////////\line\cf18\i0\f3 <?xml version=\i "1.0"\i0  encoding=\i "UTF-8"\i0 ?>\par
+<web-app xmlns:xsi=\i "http://www.w3.org/2001/XMLSchema-instance"\i0  xmlns=\i "http://java.sun.com/xml/ns/javaee"\i0  xsi:schemaLocation=\i "http://java.sun.com/xml/ns/javaee {\field{\*\fldinst{HYPERLINK "http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"}}{\fldrslt{\ul\cf3 http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd}}}\f3\fs20 "\i0  id=\i "WebApp_ID"\i0  version=\i "3.0"\i0 >\par
+\par
+  <!-- Not sure what this does. -John Mark  -->\par
+  <display-name>ThisDoesntMatter</display-name>\par
+  \par
+  <welcome-file-list>\par
+    <welcome-file>index.html</welcome-file>\par
+    <welcome-file>index.htm</welcome-file>\par
+    <welcome-file>index.jsp</welcome-file>\par
+    <welcome-file>default.html</welcome-file>\par
+    <welcome-file>default.htm</welcome-file>\par
+    <welcome-file>default.jsp</welcome-file>\par
+  </welcome-file-list>\par
+</web-app>\cf15\par
+\cf5\f2 //////////////////////////////////////////////////////////////////////////////////\cf18\line\cf15\f3\par
+\cf5\f2 SERVER LINKAGE TROUBLE SHOOT:\line Right-Click on "\cf18 EKOTUT02_IS_SERVER_NAME\cf5 " within the Servers panel.\line Select "\cf18 Add/Remove\cf5 "\line You should see "\cf18 EKOTUT02\cf5 " in the left under "\cf18 Available\cf5 "\line Hit "\cf18 Add>\cf5 " to move it over to the right panel labeled "\cf18 Configured\cf5 ".\cf2\f1\par
+\line @7:30: Put a new HTML File in \cf4 WebContent \cf2 folder.\line @7:38: Name it \cf4 index.html\cf2\par
+@7:52-@10:21: Writing inside index.html\par
+<body>\par
+\tab <form action="javaForm" method="get">\par
+\tab\tab Type Your Name : <input type="text"   name="username">\par
+\tab\tab Type Your Email: <input type="text"   name="useremail">\par
+\tab\tab <input type="submit" value = "send information" name="send_button">\par
+\tab </form>\par
+</body>\par
+\par
+\fs16 OOPS: Already covered this. Well, here is where it was in the original tutorial:\par
+@10:33: localhost:8080/JavaForm  ... 404 error.\par
+@10:50: RIGHT CLICK on server. ADD/REMOVE select.\par
+In "add Remove" dialog.\par
+You want to move your JavaForm resource on the list on the left\par
+over to the right.\par
+@11:03: Click Finish.\fs20\par
+\par
+\b\fs22 @11:09: Try \cf4 localhost:8080/JavaForm\cf2  again.\b0\fs20\par
+@11:29: RESTART server. (Right Click on server, select restart)\par
+@11:40: Form is now working!\line\line\cf5 Trouble Shooting:\line When I try to start the server, I get:\line '\cf18 EKOTUT02_IS_SERVER_NAME\cf5 ' has been modified? Save changes?\line *Select Yes*\line Error while saving. Could not save because the file has been modified since\par
+the start of editing.\par
+\cf2\par
+//RUNNING: index.html: \line //(Right Click on it in solution explorer and select run>on on server.)\par
+@11:47: If you click "Send Information" You will get a 404 error.\par
+@11:47 - 12:16: Mentions we need to create a class to be invoked to stop the 404 error.\par
+\par
+\b\fs22 Make JavaForm.java that will handle form submission:\par
+///////////////////////////////////////////////////////////////////////\b0\fs20\par
+@12:27: \cf4 "Java Resources" > Right Click > New Class\par
+\cf2 @12:39: Name of Class: "\cf4 JavaForm\cf2 "\par
+@12:55: Package: "\cf4 org.asastudio.form\cf2 "\par
+@13:01: SuperClass > Browse...\par
+@13:05: SuperClass Selection Menu:\par
+        Choose a type:\par
+@13:12: Type: \cf4 HttpServlet\cf2\par
+@13:24: Hit "Finish" on the "New Java Class" dialog.\par
+@13:36: About to write into auto-generated javaForm.java class.\par
+\par
+@13:42: CTRL + SPACE to get inherited method stub list.\par
+@13:43: Select: doGet(...) function.\par
+\par
+javaForm.java:\par
+public class javaForm extends HttpServlet\{\par
+\tab @Override\par
+\tab protected void doGet(HttpServletRequest req, HttpServletResponse resp)\par
+\tab\tab\tab throws ServletException, IOException\{\par
+\tab\tab resp.getWriter().println("TESTING SUCCESS!");\par
+\tab\}\par
+\}\par
+@14:36: Done writing. Saves all.\par
+\b\fs22 ///////////////////////////////////////////////////////////////////////\b0\fs20\par
+\par
+\par
+\b\fs22 Current state of things:\b0\fs20\line\i Going to: {\field{\*\fldinst{HYPERLINK "http://localhost:8080/EKOTUT02/"}}{\fldrslt{\ul\cf3 http://localhost:8080/EKOTUT02/}}}\f1\fs20\line Will bring up the index.html page. But when submitting the form, it does\par
+not direct you to JavaForm.java like we want. We can fix this by adding\par
+servlet tags into web.xml.\line\i0\par
+@14:57: Refreshed. Still gettting 404 error.\par
+@15:04: Restart the server. (Right Click on Server in servers panel -> Restart)\par
+\par
+@15:18: At form at: localhost:8080/JavaForm/\par
+@15:24: Send information button clicked.... Still getting nothing... GRRR.\par
+        HTTP Status 404 - /JavaForm/JavaForm\par
+\par
+@15:35: Points to web.xml. The solution is probably in there.\par
+        <PRJ ROOT> /WebContent/WEB-INF/web.xml\par
+\par
+@15:43: Begins editing web.xml\par
+These tags are put as the FIRST ELEMENTS inside of WEB.XML.\par
+\b //////////////////////////////////////////////////////////////////\b0\par
+<servlet>\par
+\tab <servlet-name>test</servlet-name>\par
+\tab <servlet-class>org.asastudio.form.JavaForm</servlet-class>\par
+</servlet>\par
+\par
+<servlet-mapping>\par
+\tab <servlet-name>test<servlet-name>\par
+\tab <url-pattern>/JavaForm</url-pattern>\par
+<servlet-mapping>\par
+\b //////////////////////////////////////////////////////////////////\b0\par
+\par
+@17:29: Done writing web.xml servlet code.\par
+@17:34: Back in internet-browser.\par
+@17:42: Saves all. Restarts server.\par
+@17:52: At: localhost:8080/JavaForm/ in browser.\par
+Hits send information.\par
+@17:54: TESTING SUCCESS!!!\par
+\par
+@18:19: Back inside JavaForm.java. About to write more code.\par
+\par
+String uname = req.getParameter("username");\par
+resp.getWriter().println(uname);\par
+@19:28: Save all and restart server.\par
+@19:42: localhost:8080/JavaForm\par
+Hit SEND INFORMATION.\par
+@19:48: TESTING SUCCESS!!\par
+\par
+@19:54: Going back to localhost:8080/JavaForm/\par
+Type in your name.\par
+@19:56: Your name will show up after hitting submit button.\par
+\par
+@20:03: Back inside JavaForm.java\par
+String uname = req.getParameter("useremail");\par
+\par
+@21:18: JavaForm.java has been updated to what I believe will be it's final\par
+state for this tutorial.\par
+@:21:22: Restarting server.\par
+@21:42: Adding name and email to page: localhost:8080/JavaForm/\par
+\par
+@21:50: ALMOST! Error:\par
+Your Name = MrGuy<p>\par
+@21:56: Fix: Removing the extra <p> s.\par
+@22:03: NOW JavaForm.java is in the final state. I think.\par
+\par
+@22:12: RESTART server after saving all.\par
+\par
+@22:38: Changing metho in index.html from\par
+method="get"\par
+to\par
+method="post"\par
+\par
+@22:50: After you  hit SUBMIT button in the browser. You will get error:\par
+HTTP Status 405 - HTTP method POST is not supported by this URL\par
+\par
+@23:07: Inside JavaForm.java\par
+Changing method "doGet" to "doPost"\par
+\par
+@23:16: Save all, restart server.\par
+@23:24: localhost:8080/JavaForm\par
+Send information.\par
+@23:27: Testing Success!\par
+\par
+@23:36: What is the difference between the get and post?\par
+Now that we are using "post", the url does not display any of\par
+the submitted information in the query string within the URL.\par
+\par
+@24:00 THANKYOU FOR WATCHING. SUBSCRIBE.\cf0\lang9\par
+\f0\fs22\par
+\fs16\par
+\par
+\par
+\par
+\fs22\par
+\par
+\par
+}
+ 

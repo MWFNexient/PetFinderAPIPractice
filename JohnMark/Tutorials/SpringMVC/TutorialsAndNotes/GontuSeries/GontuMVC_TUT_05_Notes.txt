@@ -1,0 +1,105 @@
+
+From THIS tutorial on youtube:
+https://www.youtube.com/watch?v=bnB4x-oAd_M
+
+NOTE: ** Denotes Action On Screen taken by presenter in video **
+AKA: ** Points to Web.xml ** means presenter's cursor is hovering
+        over Web.xml in the video.
+
+@0:08 Review of previous lessons.
+@0:44 Declaration of what will come:
+"[...]create an ultra simple web application using Spring MVC"
+@0:54 Diagram of workflow that will be used for this tutorial.
+@1:46 "Technically, I just need to follow..."
+MAIN STEPS:
+MS#1. Modify web.xml file
+MS#2. Create spring-dispatcher-servlet.xml (Aka Front Controller)
+MS#3. Create the HelloController.Java class ( A controller)
+MS#4. Create the HelloPage.jsp file ( A View )
+@2:00 **Points to Web.xml file that needs to be modified for STEP#1.**
+@2:06 Auto-Generated code on screen.
+@2:07 WEB-INF / Web.xml (Where Web.xml should be)
+@2:07-2:28 :If you want servlets, you MUST have Web.xml file here!
+@2:28-2:38 The main purpose of Web.xml is to:
+Map the input of your request to an appropriate servlet
+that can serve that request.
+@2:39-2:58 "Why am I telling you all this?"
+Answer: Spring MVC framework uses servlet technology as it's base.
+@2:59 Another reminder: Put Web.xml in WEB-INF ALWAYS.
+@3:09-3:12 You will need to put up THIS code.
+(Pastes code into window of web.xml)
+PASTEBIN LINK to code transcribed off of screen:
+
+//PasteBin Link: http://pastebin.com/22QzqsYH
+	//Begin code:
+	<servlet>
+		<servlet-name>spring-dispatcher</servlet-name>
+			<servlet-class>
+				org.springFramework.web.servlet.DispatcherServlet
+			</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>spring-dispatcher</servlet-name>
+			<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	//End Code
+
+@3:16-3:27 Explanation of code:
+Tells servlet technology all your url requests to the web application
+should be mapped to the SpringMVC framework for further processing.
+@3:28-3:44   Extended Explanation of code:
+Map any URL request to your front controller named "DispatcherServlet"
+Mentions how "Front Controller" is synonymous with "Dispatcher Servlet"
+@3:45-3:56  Extended-Extended Explanation of code:
+Front controller will take complete responsibility of:
+    1. Processing url request.
+    2. Sending back response to the client browser.
+@3:56-4:02 " With the help of... All it's helpers around it."
+Goes back to DIAGRAM first seen at 0:54
+
+@4:04-4:19   "In order to make front controller work..."
+"In order to make the front controller work and take charge"
+"of the entire application, we will need to provide all relevant information"
+"to it in a file called springDispatcherServlet.xml"
+    @4:13 "All relevant information to it"
+    @4:15-4:19 "A file called Spring Dispatcher Servlet.xml"
+@4:20 SpringDispatcherServlet.xml is ALSO in WEB-INF folder with Web.xml
+@4:42-4:32: Declares 4:20 to be MS#2 (Main Step #2 from my notes)
+@4:33 Right-Clicks on WEB-INF folder in project explorer.
+@4:35-4:38 New --> File (in the context menu made @4:33)
+@4:39-4:41   Name it: "spring-dispatcher-servlet.xml" then click "Finish"
+﻿@4:44-4:54
+"I will quickly provide all relevant information in this file that the front controller"
+"would need to manage this application. And later I will explain the code."
+@4:57-5:00 "You see here... these sections"
+@5:01-5:06 "Each Section is conveying specific information to the front controller"
+
+
+@5:06-5:23      SECTION#1 START
+                       Handler Mapping
+@5:06-5:12 "This section tells the front controller what handler mapping to use."
+@5:12-5:14 "hand? the input url" (hard time understanding a word)
+@5:15-@5:22
+"and tell the front controller which data generated class to be called for further
+processing that request.
+
+@5:24 SECTION #3 START: (yes, 3 before 2)
+                    View Resolver
+The view resolver tells us the exact location of the view to be used in the project.
+
+@5:33-3:42 SECTION #2 START:
+                    Controller
+This is the controller of the data generated class that you are seeing
+in the diagram first seen at 0:54
+
+@5:41 "Before we go further into explaining" this anymore, lets get onto steps 3&4
+@5:52 Main steps are shown back on screen.
+@5:53 nice arrows showing Controller + View location in project.
+@6:10-6:22
+In the next tutorial, we will go over what the code we just wrote does.
+Along with running the application on Apache Tomcat server.
+
+
+
+	

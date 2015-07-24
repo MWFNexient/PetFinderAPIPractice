@@ -1,0 +1,274 @@
+
+https://nexient-my.sharepoint.com/personal/abenson_nexient_com/_layouts/15/WopiFrame.aspx?sourcedoc={B1C8E2F1-47B5-4879-B38C-F496959D2227}&file=July%20Bootcamp%20Planning.xlsx&action=default
+http://simwiki/index.php/Training_Projects
+
+SOURCE YOUTUBE TUTORIAL VIDEO:
+Spring MVC Tutorials 06 - 
+Creating first Spring MVC Web Application Using Eclipse IDE
+https://www.youtube.com/watch?v=qXIESogSi_Q
+
+Abbreviations: 
+EE == Enterprise Explorer of eclipse IDE.
+
+0:00 - 0:30 :Intro: What We will do. Explain code. And run on Apache TomCat.
+0:37 : Lets see the client request page. Using this url:
+       http://localhost:8080/FirstSpringMVCProject/welcome.html
+0:40 : Server technology would map this url request
+       **points to <url-pattern> / <url-pattern> in web.xml file. **
+	   To something called "DispatcherServlet" provided by springMVC
+	   **points to "DispatcherServlet" part of
+	   org.springframework.web.servlet.DispatcherServlet **
+	   
+@0:53-@1:01:
+        Would read a file called "spring-dispatcher-servlet.xml"
+        And would further control the application.
+		**points to "spring-dispatcher-servlet.xml" inside of folder
+		<projectRoot>/WebContent/WEB-INF/spring-dispatcher-servlet.xml **
+		
+@1:05-@1:14: 
+       "In simple words..."
+       "once the controller reaches here, the front controller's job is to"
+	   "PREPARE and SEND-BACK RESPONSE to the CLIENT's browser."
+	   
+@1:15-1:27:
+       Work flow diagram again.
+	   Front controller FIRST needs to use the HANDLER mapping classes
+	   so that it knows what controller to use.
+	   E.g. Handler mapper re-routes Front-Controller to correct controller...
+	   (NOTE: What the hell is the other controller called? It is just called
+	    "controller" in this diagram. I am going to refer to it as
+		"NES Paint-Ball Gun Controller" to distinguish it from the front
+		controller.
+		
+		Question:
+		Does this quote:
+		"With the help of handler mapping classes provided by SpringMVC
+		framework"
+		Mean to say the handler-mapping classes are auto-generated / included
+		as part of springMVC and we don't have to write them?
+		
+@1:29-1:34:
+        "This is exactly what is happening over here"
+		"With the help of this handler mapping class."
+        **opens WEB-INF/spring-dispatcher-servlet.xml and
+          points to the <bean> with the id="HandlerMapping" **/		
+@1:34-1:37:
+		**pointing at text "BeanNameUrlHandlerMapping"
+		  within WEB-INF/spring-dispatcher-servlet.xml**
+		States that this handler class is provided by
+		the spring MVC framework.
+		
+@1:37-1:44
+		"The front controller makes the decision to call
+		the HelloController class which we have written here"
+		**points to:<prjRoot>/JavaResources/src/<package>/HelloController.java**
+		"in the project."
+		
+@1:44-2:13 :How does it?
+		http://localhost:8080/FirstSpringMVCProject/welcome.html
+		"The handler mapping class would match the incoming request-URL
+		pattern with the beans..."
+		
+		@1:52 **Points to name="/welcome.html"**
+		(Where he just pointed is basically a matching pattern for the
+		incomming url that routes to HelloController if there is a match.)
+
+		"name of the controller classes you provided
+		here within the spring-dispatcher-servlets.xml file."
+		
+		**Points to open tab with spring-dispatcher-servlets.xml label. **
+		
+		"And once it finds any beans-name pattern is matching with the incomming
+		request url-pattern, it just suggests the front controller to make
+		a call to THAT"
+		
+		**points to HelloController portion of line:
+		  com.<yourPackageName>.hellocontroller.HelloController
+		  within spring-dispatcher-servlets.xml file. **/
+		
+		"controller class."
+		
+2:13-2:28
+		"After knowing that incomming url request pattern is exactly matching"
+		**points to "/welcome.html" text in
+		<beans name="/welcome.html" class="com.<yourPackage>[...] /> **
+		"with this beans name"
+		"which is for HelloController class"
+		"..."
+		"the handler mapping class just suggests front controller"
+		**Highlights "HandlerMapping" of <bean id="HandlerMapping" cla..."**
+		"To make a call to the HelloController class"
+		**highlights com.<yourPackageName>.helloController.HelloController**
+		
+2:28-2:45
+		**Clicks on "HelloController.java" in Enterprise Explorer.**
+		**Clicks back on spring-dispatcher-servlet.xml without saying anything**
+		"There are many handler mapping classes provided by springMVC framework"
+		"and here I am using the basic one"
+		**highlights: 
+		org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping
+		within the spring-dispatcher-servlet.xml file. **
+		
+2:45-2:54
+		"Each handler mapping class analyses and matches"
+		"the incomming url request-pattern using different"
+		"approaches"
+		
+2:54-3:02 : Will talk more about handler mapping classes in later tutorials.
+
+3:00-3:28
+		**clicks on HelloController.java in enterprise explorer. **
+		"so once the control reaches here to the HelloController class"
+		"I am here simply setting the data which is to be displayed"
+		"On the client's browser in the response in the welcome message"
+		"variable"
+		**points to "welcomeMessage" text within HelloController.java file.**
+		"and the view name"
+		**highlights ModelAndView within HelloController.java file. **
+		"to the model and view object which is provided by springMVC"
+		"framework and then I am just returning back"
+		"this object"
+		**highlights "modelandview" of line "return modelandview"**
+		"to the front controller"
+		**opens spring-dispatcher-servlet.xml by clicking it in EE **
+		
+@3:28-4:08
+		"The point to note over here is"
+		**Clicks HelloController.java in EE **
+		each controller class has to extend AbstractController
+		"Here I am extending.... AbstractController... Provided by 
+		 SpringMVC framework."
+		 More will be taught about this in later tutorials.
+		 
+@4:08-4:16
+		**clicks on HelloController.java in EE **
+		"So here I am returning back the modelandview object"
+		"back to the"
+		**clicks on spring-dispatcher-servlet.xml**
+		"front controller"
+		 
+@4:15-4:33
+		"once the front controller receives the model and view 
+		object returned by the controller class. It will need to finds out 
+		the exact location of the view present in the system using the
+		view resolver classes that are provided by SpringMVC framework.
+		
+@4:33-4:36 
+		"And that is what is happening over here."
+		**gestures over the <beans id="viewResolver" ... </beans>
+		  portion of spring-dispatcher-servlet.xml
+
+@4:36-4:52
+		"This view resolver class will prepare the exact location of the view"
+		"that is present in the project using the "suffix" and "prefix" "
+		"files you specify here."
+		
+		Using this calculation/mechanism:
+		[prefix value] [view name][suffix value]
+		/WEB-INF/HelloPage.jsp
+		View name is provided by HelloController
+		
+@4:52-5:02
+		"So base do this exact address provided by this view resolver class,"
+		"the front controller makes a call to the HelloPage.jsp class."
+		**clicks on HelloPage.jsp located in WEB-INF folder**
+
+@5:02-5:27
+		**Clicks spring-dispatcher-servlet.xml in EE **
+		"Theres one more point I would want to make here
+		many view resolver classes provided by springMVC
+		here I am using the basic one."
+		
+		InternalResourceViewResolver class.
+		
+		"different view resolver classes
+		serve different purpose and usage
+		for different requirements." 
+		(Will talk more about them in subsequent tutorials.)
+
+@5:27-5:56
+		**Clicks on HelloPage.jsp in EE**
+		So once a control reaches to the HelloPage.jsp file here
+		I am simply retrieving the value of welcomeMessage
+		variable"
+		
+		**highlights "<h2>$(welcomeMessage)</h2>" in HelloPage.jsp**
+		
+		"Which hello controller"
+		**Clicks HelloController.java in EE**
+		"class has set here."
+		**hovers over "welcomeMessage" in line
+		  modelandview.addObject("welcomeMessage","Hi User,....");
+		  
+		HelloPage.jsp prepares response.
+		And then sends HTML code as RESPONSE to the front controller.
+		**clicks on spring-dispatcher-servlet.xml in EE**
+		**Highlights InternalResourceViewResolver in .xml file. **
+		
+@5:56-6:08
+		Front controller simply sends it back to the client's browser
+		as a response.
+		
+ONTO RUNNING IT!
+
+@6:12-6:13
+		RightClick on PRJRoot in EE -->
+		Run As --> 1 Run on Server Alt+Shift+X,R
+	
+@6:16-6:20
+		Choose Tomcat v7.0 Server at localhost
+		Click Next
+		Finish
+		
+@6:24-6:30
+		Running successfully. Even though I see 404 error? Ok.
+	
+@6:36-6:39
+		Browser test:
+		http://localhost:8080/<prjName>/welcome.html
+		
+		If you see:
+		First Spring MVC Application Demo
+		Hi User, welcome to the first Spring MVC Application
+		
+		Then you have done it!
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
