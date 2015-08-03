@@ -1,0 +1,6 @@
+
+Using numbered file names to keep the paths shorter.
+Path names that get too long are not able to be committed.
+
+BOOK INDEX:
+01 == Just Spring Integration.

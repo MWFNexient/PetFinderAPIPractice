@@ -1,0 +1,22 @@
+
+SOURCE: https://spring.io/guides/gs/gradle/#scratch
+
+BUILD://///////////////////////////////////////////
+In build.gradle:
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+}
+
+On Command line:
+gradle wrapper //downloads gradlew.bat
+gradlew build  //runs bat file to do build.
+
+
+RUN://////////////////////////////////////////////
+In build.gradle:
+apply plugin: 'application'
+mainClassName = 'hello.HelloWorld'
+
+On Command line:
+gradlew run //runs bat file to RUN gradle project.
+

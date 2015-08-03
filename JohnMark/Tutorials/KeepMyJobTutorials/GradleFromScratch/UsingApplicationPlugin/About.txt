@@ -1,0 +1,13 @@
+
+Building on command line instructions:
+
+* == Summary of what to do on command line.
+$ == type this verbatam on command line after $ symbol.
+
+On command line:
+1. * change directory to point to PrjRoot
+2. $ gradle run
+
+NOTES:
+This is for the example that uses the application plugin to build
+gradle projects that have dependencies.

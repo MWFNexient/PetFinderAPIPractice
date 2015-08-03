@@ -1,0 +1,113 @@
+
+Servlets Tutorial 03 - Session Management
+By Vivekanada Reddy:
+https://www.youtube.com/watch?v=32UGARg8AzU
+
+@1:00
+HTTP Requests are STATELESS by themselves.
+HTTP is a stateless protocol.
+
+@2:30: HttpSession object.
+SessionID
+UserID
+
+@5:30- 5:45:
+There are 3 ways to pass session ID information.
+And one of them is through cookies.
+
+@6:32-6:38: Cookies are sent back in the response header.
+
+@???-7:14: When client makes sub-sequent request to the server.
+The cookie will also be sent to the server in the HTTP request.
+
+@7:42-7:46 :What is another way to store the session?
+@???-7:49  :URL Rewriting.
+@???-7:58  :Clients CAN disable cookies.
+@???-8:32  :In the case of URL Re-writing, what happens is:
+@8:32-8:42 :Jsession ID will be appended to URL.
+URL + ;jsessionid=1234567
+
+What is the best method?
+@???-9:37: Employing both methods on first request. URL ReWrite and Cookies
+within the first request.
+
+@9:56-10:13   :When server gets back request, if it gets a cookie, it will 
+continue using cookies.
+
+JMIM NOTE: URLRewrite is probably EASIEST. Should probably stick with that for
+now. Rather than try to support BOTH methods.
+
+@11:08: The third method is...
+@11:16: "Hidden form parameters"  @11:18(Using .JSP)
+
+@11:36: NEW SECTION. JSP Overview - Servlets v/s JSPs
+
+@???-14:06: Separate your business logic from your display/view/html code.
+
+@???-14:17:
+Servlets : Take care of business logic.
+OtherThing: Takes care of presentation. (JSP or something)
+
+@???-14:22: That somewhere else is .JSP
+Servlets: Business logic.
+JSP     : The display of business logic.
+
+@???-14:35: JSPs are used to provide the presentation logic to the client.
+@???-14:58: JSP == HTML + JAVA.
+
+@15:25: In the end, a JSP is just a Servlet.
+So then... JSP is a servlet concerned with DISPLAY code.
+
+@??-15:47 :The web container is responsible 
+for creating a servlet out of the JSP
+
+16:41:
+MyJsp.jsp --> MyJsp_jsp.java --> MyJsp_jsp.class --> MyJsp_jsp Servlet
+
+17:28: JSP Elements. (NEW SECTION)
+@17:54:  Scriptlets <% %>     (Treated as PURE java code)
+@18:22:  Expressions <%= %>  (Value of expression PRINTS to out.println(i) ) 
+@19:20:  Declarations <%! %>  (If needed to only initialize ONCE, goes in declarations)
+@19:47:  Directives <%@ %>    (page import, include file, taglib uri )
+
+@20:46: Page Directives:
+Import statements
+@21:00: Include Directive:
+Can include files.
+Whatever file you include will be DIRECTLY replace in the .JSP file.
+@21:32: TagLib Directories:
+ADVANCED. NO DISCUSSION!
+
+@22:31: NEW DIAGRAM. Where does the JSP code land in the servlet?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

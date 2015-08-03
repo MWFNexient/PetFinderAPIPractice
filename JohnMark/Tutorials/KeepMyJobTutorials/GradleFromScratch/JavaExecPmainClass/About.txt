@@ -1,0 +1,16 @@
+
+Building on command line instructions:
+
+* == Summary of what to do on command line.
+$ == type this verbatam on command line after $ symbol.
+
+On command line:
+1. * change directory to point to PrjRoot
+2. $ gradle -PmainClass=hello.HelloWorld execute
+
+NOTES:
+This is for the example that uses JavaExec on the command line.
+I am not sure what the benifits on this method are. Because it
+seems to involve:
+1. More hard coding in the build.gradle file.
+2. A more specific statement on the command line.
